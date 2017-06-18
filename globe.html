@@ -14,14 +14,22 @@
     div.years_buttons {
       position: fixed;
       top: 10px;
-      left: 50px;
+      left: 20px;
+      margin: 4px 2px;
+      font-size: 18px;
+      padding: 10px ;
+      border-radius: 4px;
+
     }
 
     div.years_buttons div {
-      background-color: #D7DDE1;
-      padding: 3px;
+      background-color: #ede9ee;
+      padding: 5px;
       margin: 7px;
+      width: 40px;
       outline-color: #D7DD68;
+      border-radius: 4px;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 
     h2 {
@@ -204,7 +212,17 @@
                           });
 
           buttons.on("click", function(d){
-            d3.select(this)
+            d3.select(".years_buttons")
+              .selectAll("div")
+              .transition()
+              .duration(500)
+              .style("background","rgb(251,201,127)");
+
+              d3.select(this)
+                .transition()
+                .duration(500)
+                .style("background", "lightblue")
+                .style("color", "white");
 
             update(d);
           })
